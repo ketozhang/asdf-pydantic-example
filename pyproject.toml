@@ -5,7 +5,7 @@ description = "Example project for asdf-pydantic"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "asdf-pydantic",
+    "asdf-pydantic @ git+https://github.com/ketozhang/asdf-pydantic@add-schema-support-for-asdf-standard-tags",
     "astropy"
 ]
 

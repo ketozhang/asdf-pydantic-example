@@ -13,9 +13,9 @@ history:
     manifest_software: !core/software-1.0.0 {name: asdf_standard, version: 1.1.1}
     software: !core/software-1.0.0 {name: asdf-astropy, version: 0.7.0}
   - !core/extension_metadata-1.0.0
-    extension_class: asdf_pydantic.examples.extensions.ExampleExtension
-    extension_uri: asdf://asdf-pydantic/examples/extensions/examples-1.0.0
-    software: !core/software-1.0.0 {name: asdf-pydantic, version: 2.0.0a3.dev3+g4970e72}
+    extension_class: shapes.integration.ShapesExtension
+    extension_uri: asdf://asdf-pydantic/examples/extensions/shapes-1.0.0
+    software: !core/software-1.0.0 {name: shapes, version: 0.1.0}
   - !core/extension_metadata-1.0.0
     extension_class: asdf.extension._manifest.ManifestExtension
     extension_uri: asdf://astropy.org/astropy/extensions/units-1.0.0

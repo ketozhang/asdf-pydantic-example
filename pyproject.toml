@@ -5,7 +5,7 @@ description = "Example project for asdf-pydantic"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "asdf-pydantic @ git+https://github.com/ketozhang/asdf-pydantic@add-schema-support-for-asdf-standard-tags",
+    "asdf-pydantic@git+https://github.com/ketozhang/asdf-pydantic@add-schema-support-for-asdf-standard-tags",
     "astropy"
 ]
 
@@ -16,3 +16,6 @@ build-backend = "hatchling.build"
 [project.entry-points]
 'asdf.extensions' = { shapes_extension = 'shapes.integration:get_extensions' }
 'asdf.resource_mappings' = { shapes_schemas = 'shapes.integration:get_resource_mappings' }
+
+[tool.hatch.metadata]
+allow-direct-references = true

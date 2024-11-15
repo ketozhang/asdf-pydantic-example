@@ -25,4 +25,8 @@ def get_extensions():
 
 def get_resource_mappings():
     schema = yaml.safe_load(Circle.model_asdf_schema())
-    return [{schema["id"]: yaml.dump(schema)}]
+    schema_str = yaml.dump(schema)
+
+    logging.debug("\n%s", schema_str)
+
+    return [{schema["id"]: schema_str}]

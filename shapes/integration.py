@@ -1,12 +1,10 @@
-import asdf
-from asdf import AsdfFile
-from astropy import units as u
-from shapes.circle import Circle
+import logging
 
-import asdf
 import yaml
 from asdf.extension import Extension, TagDefinition
 from asdf_pydantic import AsdfPydanticConverter
+
+from shapes.circle import Circle
 
 AsdfPydanticConverter.add_models(Circle)
 
@@ -25,6 +23,7 @@ def get_extensions():
 
 def get_resource_mappings():
     schema = yaml.safe_load(Circle.model_asdf_schema())
+    schema["required"] = [*schema["required"], "nonexist"]
     schema_str = yaml.dump(schema)
 
     logging.debug("\n%s", schema_str)

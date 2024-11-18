@@ -6,12 +6,13 @@ from asdf_pydantic import AsdfPydanticConverter
 
 from shapes.circle import Circle
 
-AsdfPydanticConverter.add_models(Circle)
+converter = AsdfPydanticConverter()
+converter.add_models(Circle)
 
 
 class ShapesExtension(Extension):
     extension_uri = "asdf://asdf-pydantic/examples/extensions/shapes-1.0.0"
-    converters = [AsdfPydanticConverter()]
+    converters = [converter]
     tags = [
         TagDefinition(Circle._tag, schema_uris=[Circle._tag + "/schema"]),
     ]
@@ -23,7 +24,6 @@ def get_extensions():
 
 def get_resource_mappings():
     schema = yaml.safe_load(Circle.model_asdf_schema())
-    schema["required"] = [*schema["required"], "nonexist"]
     schema_str = yaml.dump(schema)
 
     logging.debug("\n%s", schema_str)
